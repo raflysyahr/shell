@@ -19,4 +19,6 @@ workflows:
       - name: Build APK
         script: ./gradlew assembleDebug -Dorg.gradle.jvmargs="--add-opens java.base/java.io=ALL-UNNAMED" --scan
     artifacts:
-      - app/build/outputs/apk/debug/app-debug.apk
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/ios/ipa/*.ipa
