@@ -17,7 +17,9 @@ workflows:
         script: chmod +x ./gradlew
 
       - name: Build APK
-        script: ./gradlew assembleRelease -Dorg.gradle.jvmargs="--add-opens java.base/java.io=ALL-UNNAMED" --scan
+        script: |
+           cd shell
+          ./gradlew assembleRelease -Dorg.gradle.jvmargs="--add-opens java.base/java.io=ALL-UNNAMED" --scan
     artifacts:
       - app/outputs/flutter-apk/app-release.apk
       - app/outputs/bundle/release/app-release.aab
