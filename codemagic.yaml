@@ -18,7 +18,7 @@ workflows:
 
       - name: Build APK
         script: |
-           cd shell
+          cd shell
           ./gradlew assembleRelease -Dorg.gradle.jvmargs="--add-opens java.base/java.io=ALL-UNNAMED" --scan
     artifacts:
       - app/outputs/flutter-apk/app-release.apk
