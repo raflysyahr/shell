@@ -7,6 +7,9 @@ workflows:
         NDK_VERSION: 25.2.9519653
       java: 17
     scripts:
+      - name: Setup local.properties
+        script: |
+          echo "ndk.dir=/usr/local/share/android-sdk/ndk/25.2.9519653" >> local.properties
       - name: Install NDK
         script: |
           yes | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "ndk;$NDK_VERSION"
