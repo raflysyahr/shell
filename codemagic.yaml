@@ -20,7 +20,23 @@ workflows:
         script: |
           cd shell
           ./gradlew assembleRelease -Dorg.gradle.jvmargs="--add-opens java.base/java.io=ALL-UNNAMED" --scan
+    publishing:
+      email:
+        recipients:
+          - avalubau@gmail.com
+        notify:
+          success: true
+          failure: false
+
     artifacts:
-      - app/outputs/flutter-apk/app-release.apk
-      - app/outputs/bundle/release/app-release.aab
-      - app/outputs/ios/ipa/*.ipa
+      - app/build/outputs/**/*.aab
+      - app/build/outputs/**/*.apk
+      - termux-app/build/**/outputs/apk/**/*.apk
+      - build/**/outputs/apk/**/*.apk
+      - subfolder_name/build/**/outputs/apk/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - build/ios/ipa/*.ipa
+      - build/macos/**/*.pkg
+      - /tmp/xcodebuild_logs/*.log
+      - flutter_drive.log
